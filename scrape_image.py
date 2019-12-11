@@ -2,6 +2,7 @@ import click
 import requests
 from bs4 import BeautifulSoup
 
+# Function to download the image of the day from https://unsplash.com
 @click.command()
 def main():
     url = 'https://unsplash.com/'

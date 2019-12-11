@@ -3,12 +3,16 @@ import subprocess
 import platform
 import os
 
+# Function to set the background of your system
+# Works on all operating systems.
+# image_path: Absolute path to the image you want to set as the background
 @click.command()
 @click.argument('image_path', type=click.Path(exists=True))
 def main(image_path):
     os_name = platform.system()
 
     try:
+        # MacOS
         if os_name == 'Darwin':
             SCRIPT = ("/usr/bin/osascript<<END\n"
                     "tell application \"Finder\"\n"
@@ -19,9 +23,11 @@ def main(image_path):
             subprocess.Popen(SCRIPT % image_path, shell=True)
             subprocess.call(["killall Dock"], shell=True)
 
+        # Linux (Gnome)
         elif os_name == 'Linux':
             os.system("gsettings set org.gnome.desktop.background picture-uri file://" + image_path)
 
+        # Window
         else:
             import ctypes
             SPI_SETDESKWALLPAPER = 20

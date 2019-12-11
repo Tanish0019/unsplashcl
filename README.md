@@ -1,24 +1,34 @@
-# unsplashcl
-CLI to interact with https://unsplash.com
+# Requirements
 
-## Why a new CLI when other tools exist?
+- Python3
+- pipenv
 
-Unsplash isn't just a photo-gallery, it's a community of generous photographers and consumers to share free photographs. The existing tools don't handle these attribution and credits to the creators of these photos. There is no single client supporting all of the 3 major platforms i.e OSX, Windows, Linux.
+## Setting Up
 
-## DWoC
+- Run the following commands in the terminal
 
-In DWoC, with 2 sub-projects, we'll try to build a good interface for Unsplash on the command-line, and build additional plugins to handle wall-papers.
+  ```bash
+  pipenv shell
+  pipenv install
+  ```
 
-[unsplashcl-interactor](https://github.com/plant99/unsplashcl/wiki/unsplash-interactor)
+- Make a new file - `config.py` in the root directory of the repository and paste the following in it.
 
-[desktop-interactor](https://github.com/plant99/unsplashcl/wiki/desktop-interactor)
+  ```python
+  client_id = <Your_Unsplash_Client_ID>
+  secret_key = <Your_Unsplash_Secret_Key>
+	```
 
-**Please submit your applications only for the projects above(^)**
+## Running The Script
 
-It would be used by devs, and users who want to download a collection.
+### picture of the day
 
-## Tech Stack
+```bash
+python scrape_image.py
+```
 
-Python, with requests, argparse/click
+### Set Background
 
-### [Wiki](https://github.com/plant99/unsplashcl/wiki)
+```bash
+python change_bg.py <Image Path>
+```
